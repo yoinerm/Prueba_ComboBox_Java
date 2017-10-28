@@ -7,6 +7,8 @@ package prueba_combobox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.control.ComboBox;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -17,12 +19,23 @@ public class Ventana_1 extends javax.swing.JFrame {
     String[] equipo_2 = {"Video jet 2-Bulk", "Video jet 2-P", "Video jet de cajas"};    
     String[] equipo_3 = {"Video jet 3-Bulk", "Video jet 3-P", "Video jet de cajas"};
     String[] equipo_5 = {"Video jet 5-1", "Video jet 5-2", "Video jet 5-3"};
+    String[] equipo_6 = {"Video jet 6-1", "Video jet 6-2"};
+    String[] equipo_7 = {"Video jet 7-1", "Video jet 7-2"};
+    String[] equipo_8 = {"Video jet 8-1", "Video jet 8-2"};
+    String[] equipo_11 = {"Video jet 11-1", "Video jet 11-2"};
+    String[] equipo_12 = {"Video jet 12-1", "Video jet 12-2"};
+    String[] equipo_13 = {"Video jet 13-1", "Video jet 13-2"};
+    String[] equipo_14 = {"Video jet 14-1", "Video jet 14-2", "Video jet 14-3"};
+    String[] equipo_15 = {"Video jet 15-1", "Video jet 15-2", "Video jet 15-3"};
+    
 
     public Ventana_1() {
         initComponents();
        LineasCB.setModel(new javax.swing.DefaultComboBoxModel<>(linea));
-       LineasCB.addActionListener(new onSelect());
        EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
+       
+       LineasCB.addActionListener(new onSelect());
+       EquiposCB.addActionListener(new onSelect());
     }
     
     @SuppressWarnings("unchecked")
@@ -36,6 +49,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         EquiposCB = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(250, 250));
         setPreferredSize(new java.awt.Dimension(300, 300));
         setSize(new java.awt.Dimension(300, 300));
 
@@ -61,11 +75,11 @@ public class Ventana_1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
         );
 
         pack();
@@ -76,7 +90,74 @@ public class Ventana_1 extends javax.swing.JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showInputDialog(null, "Confirmado");
+            /*Prueba: asi se consigue el ID del JComboBox que disparo 
+              el evento "e.getSource().hashCode()"*/
+            int id = e.getSource().hashCode();
+            
+            switch (id){
+                ////////////////////////////////////////////////////////////////
+                // SELECCION DE LINEAS
+                ////////////////////////////////////////////////////////////////
+                case 109961541:
+                    int indexItem = LineasCB.getSelectedIndex();
+                    switch (indexItem){
+                        case 0:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
+                            break;
+                        case 1:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_2));
+                            break;
+                        case 2:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_3));
+                            break;
+                        case 3:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_5));
+                            break;
+                        case 4:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_6));
+                            break;
+                        case 5:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_7));
+                            break;
+                        case 6:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_8));
+                            break;
+                        case 7:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_11));
+                            break;
+                        case 8:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_12));
+                            break;
+                        case 9:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_13));
+                            break;
+                        case 10:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_14));
+                            break;
+                        case 11:
+                            EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_15));
+                            break;
+                    }
+                    
+                    break;
+                    
+                    
+                    
+                    
+                ////////////////////////////////////////////////////////////////
+                // SELECCION DE EQUIPOS
+                ////////////////////////////////////////////////////////////////
+                case 670700378:
+                    JOptionPane.showMessageDialog(null, "JComboBox Equipos");
+                    break;
+            }
+            
+            
+            
+            
+            
+            //JOptionPane.showMessageDialog(null, id);
+            ////////////////////////////////////////////////////////////////////
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
         
