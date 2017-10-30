@@ -63,6 +63,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         getText_PTinta = new javax.swing.JFormattedTextField();
         getText_PVacio = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 250));
@@ -194,13 +195,22 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
         jPanel1.add(getText_PVacio, gridBagConstraints);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Generar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
+        jPanel1.add(jButton1, gridBagConstraints);
+
+        jButton2.setText("Agregar");
+        jButton2.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(jButton2, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,6 +345,7 @@ public class Ventana_1 extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField getText_PTinta;
     private javax.swing.JFormattedTextField getText_PVacio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
