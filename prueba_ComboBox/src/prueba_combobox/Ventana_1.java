@@ -41,6 +41,7 @@ public class Ventana_1 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         lineasLab = new javax.swing.JLabel();
@@ -53,23 +54,38 @@ public class Ventana_1 extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(300, 300));
         setSize(new java.awt.Dimension(300, 300));
 
-        jPanel1.setLayout(new java.awt.GridLayout(2, 2));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         lineasLab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lineasLab.setText("Linea");
-        jPanel1.add(lineasLab);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(lineasLab, gridBagConstraints);
 
         LineasCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        LineasCB.setMinimumSize(new java.awt.Dimension(20, 30));
-        LineasCB.setPreferredSize(new java.awt.Dimension(20, 30));
-        jPanel1.add(LineasCB);
+        LineasCB.setMaximumSize(new java.awt.Dimension(56, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        jPanel1.add(LineasCB, gridBagConstraints);
 
         equiposLab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         equiposLab.setText("Equipo");
-        jPanel1.add(equiposLab);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel1.add(equiposLab, gridBagConstraints);
 
         EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(EquiposCB);
+        EquiposCB.setMaximumSize(new java.awt.Dimension(56, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        jPanel1.add(EquiposCB, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,12 +109,13 @@ public class Ventana_1 extends javax.swing.JFrame {
             /*Prueba: asi se consigue el ID del JComboBox que disparo 
               el evento "e.getSource().hashCode()"*/
             int id = e.getSource().hashCode();
+            //JOptionPane.showMessageDialog(null, id);
             
             switch (id){
                 ////////////////////////////////////////////////////////////////
                 // SELECCION DE LINEAS
                 ////////////////////////////////////////////////////////////////
-                case 109961541:
+                case 1134517053:
                     int indexItem = LineasCB.getSelectedIndex();
                     switch (indexItem){
                         case 0:
