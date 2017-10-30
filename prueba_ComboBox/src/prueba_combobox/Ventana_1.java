@@ -48,12 +48,16 @@ public class Ventana_1 extends javax.swing.JFrame {
         LineasCB = new javax.swing.JComboBox<>();
         equiposLab = new javax.swing.JLabel();
         EquiposCB = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 250));
-        setPreferredSize(new java.awt.Dimension(300, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
         setSize(new java.awt.Dimension(300, 300));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -63,7 +67,8 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jPanel1.add(lineasLab, gridBagConstraints);
 
@@ -85,7 +90,8 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(15, 0, 15, 0);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jPanel1.add(equiposLab, gridBagConstraints);
 
         EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -100,40 +106,68 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 30, 6, 0);
         jPanel1.add(EquiposCB, gridBagConstraints);
 
-        jLabel1.setText("jLabel1");
+        jTextField1.setMaximumSize(new java.awt.Dimension(150, 25));
+        jTextField1.setMinimumSize(new java.awt.Dimension(150, 25));
+        jTextField1.setPreferredSize(new java.awt.Dimension(150, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jTextField1, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
+        jLabel1.setText("Control de boquilla");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 9;
-        jPanel1.add(jPanel2, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("Presion de tinta");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        jTextField2.setMaximumSize(new java.awt.Dimension(150, 25));
+        jTextField2.setMinimumSize(new java.awt.Dimension(150, 25));
+        jTextField2.setPreferredSize(new java.awt.Dimension(150, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jTextField2, gridBagConstraints);
+
+        jLabel3.setText("Presion de vacio");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField3.setMaximumSize(new java.awt.Dimension(150, 25));
+        jTextField3.setMinimumSize(new java.awt.Dimension(150, 25));
+        jTextField3.setPreferredSize(new java.awt.Dimension(150, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jTextField3, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +240,8 @@ public class Ventana_1 extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////
                 // SELECCION DE EQUIPOS
                 ////////////////////////////////////////////////////////////////
-                case 670700378:
-                    JOptionPane.showMessageDialog(null, "JComboBox Equipos");
+                case 1368884364:
+                    //JOptionPane.showMessageDialog(null, "JComboBox Equipos");
                     break;
             }
             
@@ -261,8 +295,12 @@ public class Ventana_1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> LineasCB;
     private javax.swing.JLabel equiposLab;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lineasLab;
     // End of variables declaration//GEN-END:variables
 
