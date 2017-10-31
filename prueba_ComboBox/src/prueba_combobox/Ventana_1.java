@@ -67,10 +67,17 @@ public class Ventana_1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 250));
-        setPreferredSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(450, 350));
         setSize(new java.awt.Dimension(300, 300));
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 300));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 300));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {160};
+        jPanel1Layout.columnWeights = new double[] {0.0};
+        jPanel1.setLayout(jPanel1Layout);
 
         lineasLab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lineasLab.setText("Linea");
@@ -87,9 +94,8 @@ public class Ventana_1 extends javax.swing.JFrame {
         LineasCB.setMinimumSize(new java.awt.Dimension(150, 25));
         LineasCB.setPreferredSize(new java.awt.Dimension(150, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
@@ -109,9 +115,8 @@ public class Ventana_1 extends javax.swing.JFrame {
         EquiposCB.setMinimumSize(new java.awt.Dimension(150, 25));
         EquiposCB.setPreferredSize(new java.awt.Dimension(150, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
         jPanel1.add(EquiposCB, gridBagConstraints);
@@ -152,11 +157,10 @@ public class Ventana_1 extends javax.swing.JFrame {
         getText_CBoquilla.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_CBoquilla.setPreferredSize(new java.awt.Dimension(150, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
         jPanel1.add(getText_CBoquilla, gridBagConstraints);
 
         try {
@@ -170,11 +174,10 @@ public class Ventana_1 extends javax.swing.JFrame {
         getText_PTinta.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_PTinta.setPreferredSize(new java.awt.Dimension(150, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
         jPanel1.add(getText_PTinta, gridBagConstraints);
 
         try {
@@ -188,18 +191,16 @@ public class Ventana_1 extends javax.swing.JFrame {
         getText_PVacio.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_PVacio.setPreferredSize(new java.awt.Dimension(150, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
         jPanel1.add(getText_PVacio, gridBagConstraints);
 
         jButton1.setText("Generar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
         jPanel1.add(jButton1, gridBagConstraints);
 
@@ -208,7 +209,6 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
         jPanel1.add(jButton2, gridBagConstraints);
 
@@ -220,7 +220,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
