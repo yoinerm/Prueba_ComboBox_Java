@@ -7,18 +7,11 @@ package prueba_combobox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.ComboBox;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 
 public class Ventana_1 extends javax.swing.JFrame {
     String[] linea = {"Linea 1", "Linea 2", "Linea 3","Linea 5","Linea 6","Linea 7","Linea 8",
-                       "Linea 11","Linea 12","Linea 13","Linea 14","Linea 15"};
+                      "Linea 11","Linea 12","Linea 13","Linea 14","Linea 15"};
     String[] equipo_1 = {"Video jet 1-A", "Video jet 1-B", "Video jet de cajas"};
     String[] equipo_2 = {"Video jet 2-Bulk", "Video jet 2-P", "Video jet de cajas"};    
     String[] equipo_3 = {"Video jet 3-Bulk", "Video jet 3-P", "Video jet de cajas"};
@@ -31,6 +24,9 @@ public class Ventana_1 extends javax.swing.JFrame {
     String[] equipo_13 = {"Video jet 13-1", "Video jet 13-2"};
     String[] equipo_14 = {"Video jet 14-1", "Video jet 14-2", "Video jet 14-3"};
     String[] equipo_15 = {"Video jet 15-1", "Video jet 15-2", "Video jet 15-3"};
+    String[] concatenar = new String[5];
+    int itemIndexL = 0;
+    int itemIndexE = 0;
     
 
     public Ventana_1() {
@@ -41,8 +37,10 @@ public class Ventana_1 extends javax.swing.JFrame {
        LineasCB.setModel(new javax.swing.DefaultComboBoxModel<>(linea));
        EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
        
-       LineasCB.addActionListener(new onSelect());
-       EquiposCB.addActionListener(new onSelect());
+       LineasCB.addActionListener(new onSelect(1));
+       EquiposCB.addActionListener(new onSelect(2));
+       btnGenerar.addActionListener(new onSelect(3));
+       btnAgregar.addActionListener(new onSelect(4));
         
     }
     
@@ -62,8 +60,10 @@ public class Ventana_1 extends javax.swing.JFrame {
         getText_CBoquilla = new javax.swing.JFormattedTextField();
         getText_PTinta = new javax.swing.JFormattedTextField();
         getText_PVacio = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textoGenerado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 250));
@@ -197,20 +197,33 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 30, 4, 0);
         jPanel1.add(getText_PVacio, gridBagConstraints);
 
-        jButton1.setText("Generar");
+        btnGenerar.setText("Generar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(btnGenerar, gridBagConstraints);
 
-        jButton2.setText("Agregar");
-        jButton2.setToolTipText("");
+        btnAgregar.setText("Agregar");
+        btnAgregar.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
+        jPanel1.add(btnAgregar, gridBagConstraints);
+
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(300, 50));
+
+        textoGenerado.setColumns(20);
+        textoGenerado.setRows(5);
+        jScrollPane1.setViewportView(textoGenerado);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
-        jPanel1.add(jButton2, gridBagConstraints);
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jPanel1.add(jScrollPane1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,56 +241,70 @@ public class Ventana_1 extends javax.swing.JFrame {
 
     
     public class onSelect implements ActionListener{
-
+        private int id;
+        
+        public onSelect(int a){
+            id = a;
+        }
         @Override
         public void actionPerformed(ActionEvent e) {
-            /*Prueba: asi se consigue el ID del JComboBox que disparo 
-              el evento "e.getSource().hashCode()"*/
-            int id = e.getSource().hashCode();
             //JOptionPane.showMessageDialog(null, id);
             
             switch (id){
                 ////////////////////////////////////////////////////////////////
                 // SELECCION DE LINEAS
                 ////////////////////////////////////////////////////////////////
-                case 1134517053:
+                case 1:
                     int indexItem = LineasCB.getSelectedIndex();
-                    switch (indexItem){
+                    
+                    switch (itemIndexL){
                         case 0:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
+                            concatenar[0] = "Linea 1";
                             break;
                         case 1:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_2));
+                            concatenar[0] = "Linea 2";
                             break;
                         case 2:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_3));
+                            concatenar[0] = "Linea 3";
                             break;
                         case 3:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_5));
+                            concatenar[0] = "Linea 5";
                             break;
                         case 4:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_6));
+                            concatenar[0] = "Linea 6";
                             break;
                         case 5:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_7));
+                            concatenar[0] = "Linea 7";
                             break;
                         case 6:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_8));
+                            concatenar[0] = "Linea 8";
                             break;
                         case 7:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_11));
+                            concatenar[0] = "Linea 11";
                             break;
                         case 8:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_12));
+                            concatenar[0] = "Linea 12";
                             break;
                         case 9:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_13));
+                            concatenar[0] = "Linea 13";
                             break;
                         case 10:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_14));
+                            concatenar[0] = "Linea 14";
                             break;
                         case 11:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_15));
+                            concatenar[0] = "Linea 15";
                             break;
                     }
                     
@@ -289,17 +316,41 @@ public class Ventana_1 extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////
                 // SELECCION DE EQUIPOS
                 ////////////////////////////////////////////////////////////////
-                case 1368884364:
-                    //JOptionPane.showMessageDialog(null, "JComboBox Equipos");
+                case 2:
+                    /*int itemIndexL = LineasCB.getSelectedIndex();
+                    int itemIndexE = EquiposCB.getSelectedIndex();*/
+                    switch (itemIndexL){
+                        case 0:
+                            switch (itemIndexE){
+                                case 0: concatenar[1] = "Video jet 1-A"; break;
+                                case 1: concatenar[1] = "Video jet 1-B"; break;
+                                case 2: concatenar[1] = "Video jet de cajas"; break;
+                            }
+                            break;
+                        case 1:
+                            switch (itemIndexE){
+                                case 0: concatenar[1] = "Video jet 2-A"; break;
+                                case 1: concatenar[1] = "Video jet 2-B"; break;
+                                case 2: concatenar[1] = "Video jet de cajas"; break;
+                            }
+                            break;
+                        case 2:
+                            switch (itemIndexE){
+                                case 0: concatenar[1] = "Video jet 3-A"; break;
+                                case 1: concatenar[1] = "Video jet 3-B"; break;
+                                case 2: concatenar[1] = "Video jet de cajas"; break;
+                            }
+                            break;
+                    }
+                    break;
+                    
+                case 3:
+                    CrearTexto crearTexto = new CrearTexto(concatenar);
+                    textoGenerado.setText(crearTexto.texto);
+                    
                     break;
             }
             
-            
-            
-            
-            
-            //JOptionPane.showMessageDialog(null, id);
-            ////////////////////////////////////////////////////////////////////
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
         
@@ -340,17 +391,19 @@ public class Ventana_1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> EquiposCB;
     private javax.swing.JComboBox<String> LineasCB;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnGenerar;
     private javax.swing.JLabel equiposLab;
     private javax.swing.JFormattedTextField getText_CBoquilla;
     private javax.swing.JFormattedTextField getText_PTinta;
     private javax.swing.JFormattedTextField getText_PVacio;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lineasLab;
+    private javax.swing.JTextArea textoGenerado;
     // End of variables declaration//GEN-END:variables
 
 }
