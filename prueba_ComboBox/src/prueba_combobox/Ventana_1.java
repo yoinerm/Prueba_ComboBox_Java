@@ -7,7 +7,6 @@ package prueba_combobox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 
 public class Ventana_1 extends javax.swing.JFrame {
     String[] linea = {"Linea 1", "Linea 2", "Linea 3","Linea 5","Linea 6","Linea 7","Linea 8",
@@ -25,15 +24,13 @@ public class Ventana_1 extends javax.swing.JFrame {
     String[] equipo_14 = {"Video jet 14-1", "Video jet 14-2", "Video jet 14-3"};
     String[] equipo_15 = {"Video jet 15-1", "Video jet 15-2", "Video jet 15-3"};
     String[] concatenar = new String[5];
-    int itemIndexL = 0;
-    int itemIndexE = 0;
     
 
     public Ventana_1() {
         
-        
-        
-        initComponents();
+       initComponents();
+       concatenar[0] = "";
+       concatenar[1] = "";
        LineasCB.setModel(new javax.swing.DefaultComboBoxModel<>(linea));
        EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
        
@@ -67,9 +64,9 @@ public class Ventana_1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(250, 250));
-        setMinimumSize(new java.awt.Dimension(400, 300));
-        setPreferredSize(new java.awt.Dimension(450, 350));
-        setSize(new java.awt.Dimension(300, 300));
+        setMinimumSize(new java.awt.Dimension(400, 500));
+        setPreferredSize(new java.awt.Dimension(400, 500));
+        setSize(new java.awt.Dimension(400, 500));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 300));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 300));
@@ -212,16 +209,22 @@ public class Ventana_1 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(25, 0, 15, 0);
         jPanel1.add(btnAgregar, gridBagConstraints);
 
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(300, 50));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(300, 300));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(300, 300));
 
+        textoGenerado.setEditable(false);
         textoGenerado.setColumns(20);
+        textoGenerado.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         textoGenerado.setRows(5);
+        textoGenerado.setMinimumSize(new java.awt.Dimension(244, 250));
+        textoGenerado.setPreferredSize(new java.awt.Dimension(244, 250));
         jScrollPane1.setViewportView(textoGenerado);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.weighty = 0.9;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jPanel1.add(jScrollPane1, gridBagConstraints);
 
@@ -233,7 +236,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -241,13 +244,14 @@ public class Ventana_1 extends javax.swing.JFrame {
 
     
     public class onSelect implements ActionListener{
-        private int id;
+        private final int id;
         
         public onSelect(int a){
             id = a;
         }
         @Override
         public void actionPerformed(ActionEvent e) {
+            int indexItemL = LineasCB.getSelectedIndex();
             //JOptionPane.showMessageDialog(null, id);
             
             switch (id){
@@ -255,9 +259,9 @@ public class Ventana_1 extends javax.swing.JFrame {
                 // SELECCION DE LINEAS
                 ////////////////////////////////////////////////////////////////
                 case 1:
-                    int indexItem = LineasCB.getSelectedIndex();
                     
-                    switch (itemIndexL){
+                    
+                    switch (indexItemL){
                         case 0:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
                             concatenar[0] = "Linea 1";
@@ -317,9 +321,9 @@ public class Ventana_1 extends javax.swing.JFrame {
                 // SELECCION DE EQUIPOS
                 ////////////////////////////////////////////////////////////////
                 case 2:
-                    /*int itemIndexL = LineasCB.getSelectedIndex();
-                    int itemIndexE = EquiposCB.getSelectedIndex();*/
-                    switch (itemIndexL){
+                    /*int itemIndexL = LineasCB.getSelectedIndex();*/
+                    int itemIndexE = EquiposCB.getSelectedIndex();
+                    switch (indexItemL){
                         case 0:
                             switch (itemIndexE){
                                 case 0: concatenar[1] = "Video jet 1-A"; break;
@@ -344,7 +348,14 @@ public class Ventana_1 extends javax.swing.JFrame {
                     }
                     break;
                     
-                case 3:
+                case 3: // Boton Generar
+                    concatenar[2] = getText_CBoquilla.getText();    //Control de boquilla
+                    concatenar[3] = getText_PTinta.getText();       //Presion de tinta
+                    concatenar[4] = getText_PVacio.getText();       //Presion de vacio
+                    if (concatenar[0].equals("")||concatenar[1].equals("") == "".equals("")){
+                        concatenar[0] = "Linea 1";
+                        concatenar[1] = "Video jet 1-A";
+                    }
                     CrearTexto crearTexto = new CrearTexto(concatenar);
                     textoGenerado.setText(crearTexto.texto);
                     
