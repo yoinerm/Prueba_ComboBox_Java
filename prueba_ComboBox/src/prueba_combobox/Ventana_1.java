@@ -25,18 +25,15 @@ public class Ventana_1 extends javax.swing.JFrame {
     String[] equipo_14 = {"Video jet 14-1", "Video jet 14-2", "Video jet 14-3"};
     String[] equipo_15 = {"Video jet 15-1", "Video jet 15-2", "Video jet 15-3"};
     String[] concatenar = new String[5];
-    int itemIndexL = 0;
-    int itemIndexE = 0;
-    
+        
 
     public Ventana_1() {
         
-        
-        
-        initComponents();
+       initComponents();
        LineasCB.setModel(new javax.swing.DefaultComboBoxModel<>(linea));
        EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
-       
+       LineasCB.setSelectedIndex(0);
+       EquiposCB.setSelectedIndex(0);
        LineasCB.addActionListener(new onSelect(1));
        EquiposCB.addActionListener(new onSelect(2));
        btnGenerar.addActionListener(new onSelect(3));
@@ -152,7 +149,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         }
         getText_CBoquilla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getText_CBoquilla.setToolTipText("");
-        getText_CBoquilla.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        getText_CBoquilla.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         getText_CBoquilla.setMaximumSize(new java.awt.Dimension(150, 25));
         getText_CBoquilla.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_CBoquilla.setPreferredSize(new java.awt.Dimension(150, 25));
@@ -169,7 +166,7 @@ public class Ventana_1 extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         getText_PTinta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getText_PTinta.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        getText_PTinta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         getText_PTinta.setMaximumSize(new java.awt.Dimension(150, 25));
         getText_PTinta.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_PTinta.setPreferredSize(new java.awt.Dimension(150, 25));
@@ -186,7 +183,7 @@ public class Ventana_1 extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         getText_PVacio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getText_PVacio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        getText_PVacio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         getText_PVacio.setMaximumSize(new java.awt.Dimension(150, 25));
         getText_PVacio.setMinimumSize(new java.awt.Dimension(150, 25));
         getText_PVacio.setPreferredSize(new java.awt.Dimension(150, 25));
@@ -215,6 +212,7 @@ public class Ventana_1 extends javax.swing.JFrame {
         jScrollPane1.setMinimumSize(new java.awt.Dimension(300, 50));
 
         textoGenerado.setColumns(20);
+        textoGenerado.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         textoGenerado.setRows(5);
         jScrollPane1.setViewportView(textoGenerado);
 
@@ -241,7 +239,7 @@ public class Ventana_1 extends javax.swing.JFrame {
 
     
     public class onSelect implements ActionListener{
-        private int id;
+        private final int id;
         
         public onSelect(int a){
             id = a;
@@ -249,15 +247,16 @@ public class Ventana_1 extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             //JOptionPane.showMessageDialog(null, id);
+            int indexItemL = LineasCB.getSelectedIndex();
             
             switch (id){
                 ////////////////////////////////////////////////////////////////
                 // SELECCION DE LINEAS
                 ////////////////////////////////////////////////////////////////
                 case 1:
-                    int indexItem = LineasCB.getSelectedIndex();
+                    //int indexItemL = LineasCB.getSelectedIndex();
                     
-                    switch (itemIndexL){
+                    switch (indexItemL){
                         case 0:
                             EquiposCB.setModel(new javax.swing.DefaultComboBoxModel<>(equipo_1));
                             concatenar[0] = "Linea 1";
@@ -317,9 +316,9 @@ public class Ventana_1 extends javax.swing.JFrame {
                 // SELECCION DE EQUIPOS
                 ////////////////////////////////////////////////////////////////
                 case 2:
-                    /*int itemIndexL = LineasCB.getSelectedIndex();
-                    int itemIndexE = EquiposCB.getSelectedIndex();*/
-                    switch (itemIndexL){
+                    /*int itemIndexL = LineasCB.getSelectedIndex();*/
+                    int itemIndexE = EquiposCB.getSelectedIndex();
+                    switch (indexItemL){
                         case 0:
                             switch (itemIndexE){
                                 case 0: concatenar[1] = "Video jet 1-A"; break;
@@ -345,8 +344,12 @@ public class Ventana_1 extends javax.swing.JFrame {
                     break;
                     
                 case 3:
+                    String s = textoGenerado.getText();
+                    concatenar[2] = getText_CBoquilla.getText();    //2.Control de boquilla
+                    concatenar[3] = getText_PTinta.getText();       //3.Presion de tinta
+                    concatenar[4] = getText_PVacio.getText();       //4.Presion de vacio
                     CrearTexto crearTexto = new CrearTexto(concatenar);
-                    textoGenerado.setText(crearTexto.texto);
+                    textoGenerado.setText(s + "\n" + crearTexto.texto + "\n");
                     
                     break;
             }
