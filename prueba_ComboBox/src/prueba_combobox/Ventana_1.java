@@ -360,6 +360,9 @@ public class Ventana_1 extends javax.swing.JFrame {
                     textoGenerado.setText(crearTexto.texto);
                     
                     break;
+                    
+                case 4:
+                    Leer_Escribir_Archivos archivos = new Leer_Escribir_Archivos();
             }
             
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
