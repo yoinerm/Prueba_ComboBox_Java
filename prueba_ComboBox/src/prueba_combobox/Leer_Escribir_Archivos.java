@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Leer_Escribir_Archivos {
-    String ruta = "C:/Users/Flia Moreno Yepez/Documents/GitHub/Prueba_ComboBox_Java/prueba_ComboBox/src/prueba_combobox/Data.txt";
+    String ruta = "C:/Users/Alexis/Documents/GitHub/Prueba_ComboBox_Java/prueba_ComboBox/src/prueba_combobox/Data.txt";
     File archivo = new File(ruta);
     BufferedWriter bw;
 
